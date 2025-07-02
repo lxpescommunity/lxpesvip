@@ -1,19 +1,5 @@
-/*
-=================================================
-    STYLESHEET OTIMIZADO E ORGANIZADO
-=================================================
-    Este arquivo foi refatorado para eliminar
-    duplicidades, melhorar a organização e
-    garantir a consistência visual do projeto.
-    Todos os estilos inline e de <style> tags
-    de outras páginas HTML foram movidos para cá
-    ou para arquivos CSS dedicados a páginas.
-=================================================
-*/
-
 /* 1. CONFIGURAÇÕES GLOBAIS E VARIÁVEIS DE DESIGN */
 :root {
-    /* Cores Principais */
     --brand-purple: #a020f0;
     --brand-purple-rgb: 160, 32, 240;
     --background-primary: #0d0d12;
@@ -24,18 +10,16 @@
     --footer-background: #0A0A0E;
     --footer-border-color: rgba(138, 43, 226, 0.2);
 
-    /* Cores de Estado e Feedback */
     --success-color: #28a745;
     --danger-color: #e74c3c;
     --status-online: #00ff89;
     --warning-color: #ffc107;
 
 
-    /* Cores de Componentes (redefinidas para o padrão) */
     --card-bg-color: rgba(30, 30, 40, 0.6);
     --card-border-color: rgba(255, 255, 255, 0.1);
     --text-glass-light: #f0f0f5;
-    --vip-card-bg: #1f1f1f; /* Mantendo aqui pois é usado no vip.html que está importando custom.css */
+    --vip-card-bg: #1f1f1f;
     --vip-feature-icon-color: var(--brand-purple);
     --vip-button-text-color: #ffffff;
     --vip-button-hover-bg: #6A1FB1;
@@ -44,10 +28,9 @@
     --hover-translate-y: -10px;
     --neon-glow: 0 0 10px rgba(160, 32, 240, 0.7), 0 0 20px rgba(160, 32, 240, 0.5);
     --button-neon-glow: 0 0 15px rgba(255, 87, 51, 0.6), 0 0 5px rgba(255, 87, 51, 0.9);
-    --button-bg-color: linear-gradient(45deg, #c00047, #ff4d29); /* Verifique se é a cor principal que deseja no Hero Button */
+    --button-bg-color: linear-gradient(45deg, #c00047, #ff4d29);
     --transition-speed: 0.3s;
 
-    /* Tamanhos e Espaçamentos */
     --radius: 16px;
 }
 
