@@ -18,6 +18,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: process.env.NODE_ENV === 'production' }
 }));
+
 app.use(express.static(projectRootPath));
 
 const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
@@ -69,7 +70,7 @@ app.get('/api/auth/callback', async (req, res) => {
 
         if (isMember) {
             req.session.user = { loggedIn: true, guilds: guilds.map(g => g.id) };
-            res.redirect('/index.html');
+            res.redirect('/');
         } else {
             res.redirect('/discord-required.html');
         }
@@ -96,9 +97,18 @@ app.get('/api/logout', (req, res) => {
     });
 });
 
+app.get('/tutoriais', (req, res) => {
+    res.sendFile(path.join(projectRootPath, 'pages', 'tutoriais.html'));
+});
+
+app.get('/faq', (req, res) => {
+    res.sendFile(path.join(projectRootPath, 'pages', 'faq.html'));
+});
+
 app.get('*', (req, res) => {
     res.sendFile(path.join(projectRootPath, 'index.html'));
 });
+
 
 app.listen(PORT, () => {
     console.log(`[Servidor Web] Rodando com sucesso na porta ${PORT}.`);
