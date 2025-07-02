@@ -1,0 +1,62 @@
+[
+  {
+    "id": "install_patch",
+    "keywords": ["instalar", "instalação", "como baixo", "tutorial", "passo a passo"],
+    "question": "Como eu instalo o patch LXPES?",
+    "answer": "Para instalar o patch LXPES, siga estes passos: 1. Baixe todos os arquivos da nossa página de downloads. 2. Extraia o arquivo .zip para uma pasta de sua preferência. 3. Execute o instalador 'LXPES_Installer.exe' como administrador. 4. Siga as instruções na tela, selecionando a pasta raiz do seu eFootball PES. 5. Após a instalação, abra o jogo pelo atalho criado na área de trabalho. Bom jogo!"
+  },
+  {
+    "id": "error_01",
+    "keywords": ["erro", "crash", "jogo fecha", "não abre", "parou de funcionar"],
+    "question": "Meu jogo está fechando sozinho após instalar o patch, o que fazer?",
+    "answer": "Esse problema geralmente ocorre por falta de algum requisito. Verifique se você tem: 1. A versão mais recente do .NET Framework instalada. 2. O DirectX atualizado. 3. O jogo e o patch instalados na mesma unidade de disco (C: ou D:). Se o problema persistir, entre em nosso Discord no canal #suporte para obter ajuda."
+  },
+  {
+    "id": "compatibility",
+    "keywords": ["compatível", "funciona com", "steam", "pirata", "original"],
+    "question": "O patch é compatível com a versão da Steam/pirata?",
+    "answer": "O patch LXPES foi desenvolvido e testado para ser 100% compatível com a versão mais recente do eFootball PES adquirido na Steam. Não oferecemos suporte oficial para versões não-originais do jogo, e não podemos garantir o funcionamento."
+  },
+  {
+    "id": "update",
+    "keywords": ["atualizar", "nova versão", "update", "atualização"],
+    "question": "Como sei quando uma nova atualização do patch foi lançada?",
+    "answer": "Todas as nossas atualizações são anunciadas em primeira mão no nosso servidor do Discord, no canal #anuncios. Também atualizamos o site principal com a versão mais recente assim que ela está disponível para download."
+  },
+  {
+    "id": "utorrent_problema_pares",
+    "keywords": ["utorrent", "bittorrent", "sem pares", "não baixa", "travado"],
+    "question": "Meu uTorrent ou BitTorrent não conecta com os pares. Como resolver?",
+    "answer": "Se o seu uTorrent ou BitTorrent está travado e não conecta aos pares, siga estes passos:\n\n1. Finalize o programa pelo Gerenciador de Tarefas (Ctrl + Shift + Esc). Encerre processos como 'uTorrent.exe' ou 'BitTorrent.exe'.\n2. Abra um novo torrent leve (ex: qualquer torrent pequeno de teste) junto com o travado — isso pode forçar a reconexão com os pares.\n3. Alternativas recomendadas: Use o qBittorrent (leve, sem anúncios) ou o BitTorrent Web (versão no navegador, sem instalação).\n4. Verifique se sua internet está estável, se o firewall/antivírus está bloqueando o programa ou se a porta de entrada está aberta.\n5. Reinicie seu roteador.\n\nPersistindo, entre no canal de suporte via ⁠📩⠂tickets."
+  },
+  {
+    "id": "erro_dll_pes",
+    "keywords": ["erro dll", "msvcr100.dll", "msvcp110.dll", "faltando dll", "erro ao iniciar"],
+    "question": "Está aparecendo erro de DLL (como msvcr100.dll) ao abrir o PES. O que fazer?",
+    "answer": "Esses erros ocorrem por falta dos pacotes Visual C++ Redistributables. Para resolver:\n\n1. Baixe os redistribuíveis 2010 (x86 e x64) diretamente do site da Microsoft.\n2. Instale todos os arquivos .exe baixados, mesmo se o sistema for 64 bits.\n3. Também recomendamos baixar um pacote completo com todas as versões do Visual C++, que instala tudo de uma vez (install_all.bat).\n4. Reinicie o PC e teste o jogo.\n\n⚠️ Nunca baixe DLLs separadas de sites não confiáveis. Persistindo, abra um ⁠📩⠂tickets."
+  },
+  {
+    "id": "erro_0xc000007b",
+    "keywords": ["0xc000007b", "erro 0xc000007b", "não abre jogo", "erro ao iniciar aplicação"],
+    "question": "Erro 0xc000007b ao abrir o PES ou outro jogo. Como resolver?",
+    "answer": "Esse erro indica conflito entre bibliotecas 32 e 64 bits. Para resolver:\n\n1. Reinstale os Visual C++ Redistributables (x86 e x64).\n2. Instale o DirectX End-User Runtime.\n3. Vá até o executável do jogo, clique com o botão direito > Propriedades > Compatibilidade:\n   - Marque 'Executar como administrador'\n   - Marque 'Modo de compatibilidade: Windows 7'\n4. Instale todas as versões do Visual C++ usando um pacote completo (2005 a 2019).\n5. Reinstale o jogo se nada resolver.\n\nDepois disso, o erro deve desaparecer. Se não, abra um ⁠📩⠂tickets para ajuda direta."
+  },
+  {
+    "id": "erro_directx",
+    "keywords": ["directx", "d3dx9_43.dll", "erro directx", "dll directx", "problema com directx"],
+    "question": "Está dando erro de DirectX no PES. Como resolver?",
+    "answer": "Para corrigir erros de DirectX (ex: d3dx9_43.dll):\n\n1. Baixe o DirectX End-User Runtime (junho 2010) do site da Microsoft.\n2. Instale normalmente e reinicie o PC.\n3. Pressione Win + R > digite `dxdiag` para verificar se o DirectX está instalado corretamente.\n\n⚠️ Nunca baixe arquivos de DirectX em sites desconhecidos. Persistindo, entre em ⁠📩⠂tickets."
+  },
+  {
+    "id": "erro_steam_api_dll",
+    "keywords": ["steam_api.dll", "erro steam", "dll ausente", "jogo não abre", "erro steam_api"],
+    "question": "Erro steam_api.dll ausente ao abrir o PES. O que fazer?",
+    "answer": "Esse erro geralmente ocorre por:\n\n1. Antivírus removendo o arquivo (falso positivo). Desative temporariamente e reinstale o jogo.\n2. Se for pela Steam, verifique a integridade dos arquivos: Biblioteca > Botão direito no jogo > Propriedades > Arquivos Locais > Verificar integridade.\n3. Evite baixar o steam_api.dll de sites suspeitos. Se necessário, use DLL-files.com com cautela.\n4. Use a versão correta do DLL (32 ou 64 bits).\n\nRecomenda-se sempre usar versões originais dos jogos. Persistindo, suporte via ⁠📩⠂tickets."
+  },
+  {
+    "id": "crash_pes2013_kitserver",
+    "keywords": ["pes 2013", "kitserver", "crash", "fecha sozinho", "erro ao iniciar"],
+    "question": "PES 2013 fecha sozinho ao iniciar. O que pode ser?",
+    "answer": "Provavelmente o Kitserver não está instalado corretamente. Para resolver:\n\n1. Baixe e extraia o Kitserver na pasta onde está o PES 2013.\n2. Desative o antivírus (pode apagar arquivos do Kitserver).\n3. Vá no PES2013.exe > Botão direito > Propriedades > Desmarque 'Somente leitura'.\n4. Execute o config.exe do Kitserver > ajuste para gráfico Médio e salve.\n5. Abra o manager.exe > selecione o PES2013.exe > clique em Attach.\n6. Configure o settings.exe do jogo conforme seu PC.\n\nSempre execute o jogo como administrador. Persistindo, reinstale o Kitserver e refaça os passos."
+  }
+]

@@ -1,0 +1,371 @@
+<section id="patch-store">
+    <div class="section-header">
+        <h2 class="section-title"><span class="text-brand">Loja</span> do Patch</h2>
+        <p class="section-description">Confira nosso patch mais recente e as ofertas exclusivas para a comunidade.</p>
+    </div>
+
+    <div class="store-item-card">
+        <div class="store-item-banner">
+            <img src="/assets/gif/patch.gif" alt="Banner do Patch LXPES VIP" class="banner-image">
+        </div>
+        
+        <div class="store-item-content">
+            <div class="item-thumbnail-wrapper">
+                <img src="assets/img/ICOLXPES.ico" alt="Ícone do Patch" class="item-thumbnail">
+            </div>
+
+            <div class="item-details">
+                <div class="item-header">
+                    <h3 class="item-title">PATCH LXPES VIP!</h3>
+                    <span class="promo-badge">OFERTA ESPECIAL</span>
+                </div>
+
+                <p class="item-subtitle">Acesso imediato a benefícios e conteúdos exclusivos.</p>
+                
+                <ul class="item-features-list">
+                    <li><i class="fas fa-check-circle"></i> Placar oficial do Brasileirão Série A e B.</li>
+                    <li><i class="fas fa-user-check"></i> Faces exclusivas para membros VIP.</li>
+                    <li><i class="fas fa-image"></i> Mosaicos de torcida únicos.</li>
+                    <li><i class="fas fa-star"></i> E muito mais novidades por vir!</li>
+                </ul>
+            </div>
+
+            <div class="item-purchase-info">
+                <div class="price-section">
+                    <div class="price-original">
+                        <span>Preço original</span>
+                        <del>R$ 50,00</del>
+                    </div>
+                    <div class="price-current">
+                        <span>Preço com desconto</span>
+                        <strong>R$ 35,00</strong>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-field">
+                        <i class="fas fa-crown"></i>
+                        <div>
+                            <span class="field-name">Cargo Recebido</span>
+                            <span class="field-value">VIP Lenda</span>
+                        </div>
+                    </div>
+                     <div class="info-field">
+                        <i class="fas fa-box-open"></i>
+                        <div>
+                            <span class="field-name">Estoque</span>
+                            <span class="field-value">Ilimitado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+<a href="https://discord.com/channels/1309900079884402708/1383246392994041998/1383260995438248106" class="hero-button store-buy-button" target="_blank" rel="noopener noreferrer">
+    <i class="fas fa-shopping-cart"></i> COMPRAR AGORA
+</a>
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+/* --- Variáveis de Cor com o Novo Padrão --- */
+:root {
+    /* Cores principais da sua nova paleta */
+    --brand-color: #6A1FB1;
+    --brand-color-light: #8a2be2;
+    --brand-color-glow: rgba(138, 43, 226, 0.4);
+    --background-secondary: #1f1f1f;
+
+    /* Outras cores do layout */
+    --border-color: #383838;
+    --text-primary: #f0f0f0;
+    --text-secondary: #a0a0a0;
+    --success-color: #2ecc71;
+    --danger-color: #e74c3c;
+}
+
+/* --- Card Principal --- */
+.store-item-card {
+    background: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: visible;
+    max-width: 800px;
+    margin: 6rem auto 4rem;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.store-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Banner e Conteúdo --- */
+.store-item-banner {
+    height: 300px;
+    overflow: hidden;
+    border-radius: 16px 16px 0 0;
+}
+
+.banner-image {
+    width: 120%;
+    height: 120%;
+    object-fit: cover;
+}
+
+.store-item-content {
+    padding: 2rem 2.5rem;
+}
+
+/* --- Thumbnail Sobreposto --- */
+.item-thumbnail-wrapper {
+    position: absolute;
+    top: 220px;
+    left: 2.5rem;
+    transform: translateY(20%);
+    background-color: var(--background-secondary);
+    border-radius: 20px;
+    padding: 6px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.item-thumbnail {
+    width: 100px;
+    height: 100px;
+    border-radius: 16px;
+    display: block;
+}
+
+/* --- Detalhes do Item --- */
+.item-details {
+    padding-top: 50px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.item-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.item-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.25rem;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.1;
+}
+
+.promo-badge {
+    background-color: var(--brand-color); /* ADAPTADO */
+    color: #fff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.item-subtitle {
+    color: var(--text-secondary);
+    margin: 0.25rem 0 1.5rem 0;
+    font-size: 1.1rem;
+}
+
+.item-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.item-features-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.item-features-list .fa-check-circle {
+    color: var(--success-color);
+}
+
+/* --- Informações de Compra --- */
+.item-purchase-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.price-section {
+    background: rgba(138, 43, 226, 0.2); /* ADAPTADO */
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.price-original, .price-current {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.price-original span, .price-current span {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+.price-original del {
+    font-size: 1.2rem;
+    color: var(--danger-color);
+    opacity: 0.8;
+}
+
+.price-current strong {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    color: var(--success-color);
+    font-weight: 900;
+}
+
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-field {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-secondary);
+}
+.info-field i {
+    font-size: 1.5rem;
+    color: var(--brand-color-light); /* ADAPTADO para o roxo mais claro */
+    width: 25px;
+    text-align: center;
+}
+.info-field div {
+    display: flex;
+    flex-direction: column;
+}
+.field-name {
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: var(--text-secondary);
+}
+.field-value {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+/* =================================================================== */
+/* --- Botão de Compra (Adaptado para a nova paleta ROXA) --- */
+/* =================================================================== */
+.store-buy-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.2rem;
+    border-radius: 50px;
+    border: none;
+    background: linear-gradient(45deg, var(--brand-color), var(--brand-color-light)); /* ADAPTADO */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 5px 15px var(--brand-color-glow); /* ADAPTADO */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Efeito de Brilho (shine effect) - permanece igual */
+.store-buy-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(110deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 60%);
+    transform: skewX(-25deg);
+    transition: left 0.7s ease-in-out;
+    z-index: -1;
+}
+
+/* Efeitos no Hover */
+.store-buy-button:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(45deg, var(--brand-color-light), var(--brand-color)); /* ADAPTADO (inverte o gradiente para dar brilho) */
+    box-shadow: 0 8px 25px rgba(138, 43, 226, 0.6); /* ADAPTADO (sombra mais intensa) */
+}
+
+/* Ativa a animação do brilho no hover */
+.store-buy-button:hover::before {
+    left: 150%;
+}
+
+/* Animação do Ícone - permanece igual */
+.store-buy-button i {
+    transition: transform 0.3s ease;
+}
+
+.store-buy-button:hover i {
+    transform: translateX(5px);
+}
+
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    .item-purchase-info {
+        grid-template-columns: 1fr;
+    }
+    .item-thumbnail-wrapper {
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .item-details {
+        text-align: center;
+        padding-top: 60px;
+    }
+    .item-header {
+        justify-content: center;
+    }
+    .item-features-list li {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .item-title {
+        font-size: 1.8rem;
+    }
+    .item-header {
+        flex-direction: column;
+    }
+    .store-item-content {
+        padding: 1.5rem;
+    }
+    .price-current strong {
+        font-size: 1.5rem;
+    }
+}
+</style>

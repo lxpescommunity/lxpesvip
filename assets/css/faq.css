@@ -1,0 +1,330 @@
+/*
+=================================================
+    STYLESHEET PARA A PÁGINA DE FAQ INTELIGENTE
+=================================================
+    Estilos adaptados para usar a identidade visual
+    definida no custom.css do projeto LXPES.
+    
+    IMPORTANTE: Esta folha de estilo assume que as
+    variáveis de --brand-purple, --background-primary,
+    etc., estão disponíveis (seja por importar o
+    custom.css antes ou por defini-las aqui).
+=================================================
+*/
+
+/* 1. VARIÁVEIS DE DESIGN E ESTILOS DE BASE */
+/* As variáveis do seu custom.css são usadas aqui. */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    /* Adicionando um fundo sutil do tema principal */
+    background-image:
+        linear-gradient(rgba(var(--brand-purple-rgb), 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(var(--brand-purple-rgb), 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.faq-container {
+    width: 100%;
+    max-width: 700px; /* Um pouco maior para conforto */
+    height: 85vh;
+    max-height: 800px;
+    background-color: var(--background-secondary);
+    border-radius: var(--radius, 16px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* 2. CABEÇALHO DO CHAT */
+.faq-header {
+    background: var(--background-primary); /* Mais escuro para contraste */
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-content i {
+    font-size: 2.5rem;
+    color: var(--brand-purple);
+    text-shadow: var(--neon-glow);
+}
+
+.header-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.header-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+
+/* 3. CAIXA DE MENSAGENS DO CHAT */
+.chat-box {
+    flex-grow: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Customização da Barra de Rolagem */
+.chat-box::-webkit-scrollbar {
+    width: 8px;
+}
+.chat-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+.chat-box::-webkit-scrollbar-thumb {
+    background-color: var(--brand-purple);
+    border-radius: 10px;
+    border: 2px solid var(--background-secondary);
+}
+
+.message {
+    max-width: 85%;
+    padding: 0.8rem 1.2rem;
+    border-radius: 16px;
+    line-height: 1.6;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.message-ai {
+    background-color: var(--background-primary);
+    border: 1px solid var(--border-color);
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+    color: var(--text-secondary);
+}
+
+.message-user {
+    background: var(--brand-purple);
+    background: linear-gradient(135deg, #8a2be2, var(--brand-purple));
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+    color: white;
+    box-shadow: 0 4px 15px -5px rgba(var(--brand-purple-rgb), 0.5);
+}
+
+.message p {
+    margin: 0;
+}
+
+/* Indicador de "digitando" */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0.8rem 1.2rem;
+}
+
+.typing-indicator span {
+    width: 8px;
+    height: 8px;
+    background-color: var(--brand-purple);
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}
+
+/* 4. RODAPÉ E FORMULÁRIO DE ENTRADA */
+.faq-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--background-primary);
+    flex-shrink: 0;
+}
+
+.chat-form {
+    display: flex;
+    gap: 0.75rem;
+}
+
+#user-input {
+    flex-grow: 1;
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 50px; /* Completamente arredondado */
+    padding: 0.75rem 1.5rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#user-input:focus {
+    border-color: var(--brand-purple);
+    box-shadow: 0 0 10px rgba(var(--brand-purple-rgb), 0.5);
+}
+
+.chat-form button {
+    background: var(--brand-purple);
+    border: none;
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px -5px rgba(var(--brand-purple-rgb), 0.6);
+}
+
+.chat-form button:hover {
+    filter: brightness(1.2);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px -5px rgba(var(--brand-purple-rgb), 0.8);
+}
+
+.chat-form button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    filter: none;
+}
+
+/*
+=================================================
+    ESTILOS PARA A SEÇÃO DE PERGUNTAS POPULARES
+=================================================
+*/
+
+/* 5. LAYOUT DA PÁGINA FAQ */
+.faq-page-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px; /* Aumenta a largura máxima para acomodar as duas colunas */
+    height: 85vh;
+    max-height: 800px;
+}
+
+/* O container do chat agora ocupa a maior parte do espaço */
+.faq-container {
+    flex: 2; /* Ocupa 2/3 do espaço */
+    display: flex; /* Garante que ele continue se comportando como flex-column */
+    flex-direction: column;
+    min-width: 400px; /* Largura mínima para o chat */
+}
+
+/* Container das perguntas populares */
+.popular-questions-container {
+    flex: 1; /* Ocupa 1/3 do espaço */
+    background-color: var(--background-secondary);
+    border-radius: var(--radius, 16px);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+/* Estilo do título da seção */
+.popular-questions-container h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--text-primary);
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.popular-questions-container h2 .fa-fire {
+    color: var(--brand-purple);
+}
+
+/* Lista de perguntas */
+.popular-questions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Botão de pergunta popular */
+.popular-question-btn {
+    width: 100%;
+    background-color: var(--background-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+}
+
+.popular-question-btn:hover {
+    background-color: rgba(var(--brand-purple-rgb), 0.15);
+    border-color: var(--brand-purple);
+    color: var(--text-primary);
+    transform: translateX(5px);
+}
+
+/* Animação para a entrada da nova coluna */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 6. RESPONSIVIDADE */
+@media (max-width: 900px) {
+    .faq-page-wrapper {
+        flex-direction: column;
+        height: auto;
+        max-height: none;
+    }
+
+    .faq-container {
+        height: 70vh; /* Define uma altura fixa para o chat no mobile */
+    }
+
+    .popular-questions-container {
+        max-height: 30vh; /* Limita a altura da seção de perguntas */
+    }
+}

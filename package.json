@@ -1,0 +1,31 @@
+{
+  "name": "lxpes",
+  "version": "1.0.0",
+  "description": "Servidor backend para LX PES - Liga X Patch Editor Soccer",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pes",
+    "patch",
+    "lxpes"
+  ],
+  "author": "90ventinha",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.10.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "discord.js": "^14.21.0",
+    "dotenv": "^17.0.1",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "mercadopago": "^2.8.0",
+    "openai": "^5.8.2",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}
