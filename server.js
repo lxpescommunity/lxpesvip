@@ -1,10 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const fs = require('fs');
-const path = require('path');
+const path = 'path';
 const session = require('express-session');
-const fetch = require('node-fetch'); // npm install node-fetch@2
+const fetch = require('node-fetch');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -17,17 +16,15 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }
+    cookie: { secure: process.env.NODE_ENV === 'production' }
 }));
 app.use(express.static(projectRootPath));
 
-// Discord OAuth2 Config
 const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
 const CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET;
 const REDIRECT_URI = process.env.DISCORD_REDIRECT_URI;
 const GUILD_ID = process.env.DISCORD_GUILD_ID;
 
-// Rota para iniciar login Discord
 app.get('/api/login', (req, res) => {
     const discordAuthUrl =
       `https://discord.com/api/oauth2/authorize?client_id=${CLIENT_ID}` +
@@ -36,10 +33,11 @@ app.get('/api/login', (req, res) => {
     res.redirect(discordAuthUrl);
 });
 
-// Callback OAuth2 do Discord
 app.get('/api/auth/callback', async (req, res) => {
     const code = req.query.code;
-    if (!code) return res.status(400).send('Código OAuth não fornecido');
+    if (!code) {
+        return res.status(400).send('Erro: O código OAuth2 do Discord não foi fornecido.');
+    }
 
     const params = new URLSearchParams();
     params.append('client_id', CLIENT_ID);
@@ -57,77 +55,51 @@ app.get('/api/auth/callback', async (req, res) => {
         });
 
         const tokenData = await tokenResponse.json();
-
         if (tokenData.error) {
-            return res.status(400).send(`Erro no token: ${tokenData.error}`);
+            console.error('Erro ao obter token do Discord:', tokenData.error);
+            return res.status(400).send(`Erro na autenticação: ${tokenData.error_description}`);
         }
 
-        const accessToken = tokenData.access_token;
-
         const guildsResponse = await fetch('https://discord.com/api/users/@me/guilds', {
-            headers: { 'Authorization': `Bearer ${accessToken}` }
+            headers: { 'Authorization': `Bearer ${tokenData.access_token}` }
         });
 
         const guilds = await guildsResponse.json();
-
-        const isMember = guilds.some(g => g.id === GUILD_ID);
+        const isMember = Array.isArray(guilds) && guilds.some(g => g.id === GUILD_ID);
 
         if (isMember) {
-            req.session.user = { accessToken, guilds };
-            res.send(`
-                <h1>Você está autorizado!</h1>
-                <p>Bem-vindo ao checkout, seu acesso foi validado no Discord.</p>
-                <a href="/processar-pagamento">Prosseguir para pagamento</a>
-            `);
+            req.session.user = { loggedIn: true, guilds: guilds.map(g => g.id) };
+            res.redirect('/index.html');
         } else {
-            res.send(`
-                <h1>Você precisa entrar no nosso servidor Discord</h1>
-                <p><a href="https://discord.gg/seu-link-aqui" target="_blank">Clique aqui para entrar no servidor</a></p>
-            `);
+            res.redirect('/discord-required.html');
         }
     } catch (error) {
-        console.error('Erro na autenticação Discord:', error);
-        res.status(500).send(`Erro interno: ${error.message}`);
+        console.error('Erro no fluxo de autenticação Discord:', error);
+        res.status(500).send('Ocorreu um erro interno durante a autenticação. Tente novamente mais tarde.');
     }
 });
 
-// Protege rota pagamento
-app.get('/processar-pagamento', (req, res) => {
-    if (!req.session.user) {
-        return res.status(401).send(`
-            <h1>Acesso negado</h1>
-            <p>Você precisa fazer login com Discord para acessar esta página.</p>
-            <a href="/api/login">Entrar com Discord</a>
-        `);
+app.get('/api/user/status', (req, res) => {
+    if (req.session.user && req.session.user.loggedIn) {
+        res.json({ loggedIn: true });
+    } else {
+        res.json({ loggedIn: false });
     }
-    res.send(`
-        <h1>Processando pagamento...</h1>
-        <p>Aqui vai a integração com sua plataforma de pagamento.</p>
-    `);
 });
 
-// Rotas API simples
-app.get('/api/user', (req, res) => {
-    if (req.session.user) res.json({ loggedIn: true, user: req.session.user });
-    else res.json({ loggedIn: false });
-});
 app.get('/api/logout', (req, res) => {
-    req.session.destroy(() => { res.redirect('/'); });
-});
-
-// Serve arquivos estáticos e fallback para index.html
-app.get('*', (req, res) => {
-    if (req.path.startsWith('/api/')) {
-        return res.status(404).send('Endpoint de API não encontrado.');
-    }
-    const filePath = path.join(projectRootPath, req.path === '/' ? 'index.html' : req.path);
-    res.sendFile(filePath, err => {
+    req.session.destroy(err => {
         if (err) {
-            res.status(404).sendFile(path.join(projectRootPath, 'index.html'));
+            return res.status(500).send('Não foi possível fazer logout.');
         }
+        res.redirect('/');
     });
 });
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(projectRootPath, 'index.html'));
+});
+
 app.listen(PORT, () => {
-    console.log(`[Servidor Web] Rodando na porta ${PORT}.`);
+    console.log(`[Servidor Web] Rodando com sucesso na porta ${PORT}.`);
 });

@@ -68,15 +68,12 @@
 </section>
 
 <style>
-/* --- Variáveis de Cor com o Novo Padrão --- */
 :root {
-    /* Cores principais da sua nova paleta */
     --brand-color: #6A1FB1;
     --brand-color-light: #8a2be2;
     --brand-color-glow: rgba(138, 43, 226, 0.4);
     --background-secondary: #1f1f1f;
 
-    /* Outras cores do layout */
     --border-color: #383838;
     --text-primary: #f0f0f0;
     --text-secondary: #a0a0a0;
@@ -84,7 +81,6 @@
     --danger-color: #e74c3c;
 }
 
-/* --- Card Principal --- */
 .store-item-card {
     background: var(--background-secondary);
     border: 1px solid var(--border-color);
@@ -102,7 +98,6 @@
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
 }
 
-/* --- Banner e Conteúdo --- */
 .store-item-banner {
     height: 300px;
     overflow: hidden;
@@ -119,7 +114,6 @@
     padding: 2rem 2.5rem;
 }
 
-/* --- Thumbnail Sobreposto --- */
 .item-thumbnail-wrapper {
     position: absolute;
     top: 220px;
@@ -138,7 +132,6 @@
     display: block;
 }
 
-/* --- Detalhes do Item --- */
 .item-details {
     padding-top: 50px;
     text-align: left;
@@ -196,7 +189,6 @@
     color: var(--success-color);
 }
 
-/* --- Informações de Compra --- */
 .item-purchase-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -206,7 +198,7 @@
 }
 
 .price-section {
-    background: rgba(138, 43, 226, 0.2); /* ADAPTADO */
+    background: rgba(138, 43, 226, 0.2);
     border-radius: 12px;
     padding: 1rem;
     display: flex;
@@ -251,7 +243,7 @@
 }
 .info-field i {
     font-size: 1.5rem;
-    color: var(--brand-color-light); /* ADAPTADO para o roxo mais claro */
+    color: var(--brand-color-light);
     width: 25px;
     text-align: center;
 }
@@ -270,9 +262,6 @@
     color: var(--text-primary);
 }
 
-/* =================================================================== */
-/* --- Botão de Compra (Adaptado para a nova paleta ROXA) --- */
-/* =================================================================== */
 .store-buy-button {
     display: inline-flex;
     align-items: center;
@@ -288,16 +277,15 @@
     padding: 1.2rem;
     border-radius: 50px;
     border: none;
-    background: linear-gradient(45deg, var(--brand-color), var(--brand-color-light)); /* ADAPTADO */
+    background: linear-gradient(45deg, var(--brand-color), var(--brand-color-light)); 
     cursor: pointer;
     position: relative;
     overflow: hidden;
     z-index: 1;
-    box-shadow: 0 5px 15px var(--brand-color-glow); /* ADAPTADO */
+    box-shadow: 0 5px 15px var(--brand-color-glow);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
-/* Efeito de Brilho (shine effect) - permanece igual */
 .store-buy-button::before {
     content: '';
     position: absolute;
@@ -311,19 +299,16 @@
     z-index: -1;
 }
 
-/* Efeitos no Hover */
 .store-buy-button:hover {
     transform: translateY(-3px);
-    background: linear-gradient(45deg, var(--brand-color-light), var(--brand-color)); /* ADAPTADO (inverte o gradiente para dar brilho) */
-    box-shadow: 0 8px 25px rgba(138, 43, 226, 0.6); /* ADAPTADO (sombra mais intensa) */
+    background: linear-gradient(45deg, var(--brand-color-light), var(--brand-color));
+    box-shadow: 0 8px 25px rgba(138, 43, 226, 0.6);
 }
 
-/* Ativa a animação do brilho no hover */
 .store-buy-button:hover::before {
     left: 150%;
 }
 
-/* Animação do Ícone - permanece igual */
 .store-buy-button i {
     transition: transform 0.3s ease;
 }
@@ -332,8 +317,6 @@
     transform: translateX(5px);
 }
 
-
-/* --- Responsividade --- */
 @media (max-width: 768px) {
     .item-purchase-info {
         grid-template-columns: 1fr;
